@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sony Habibi — Portofolio PKL</title>
+  <meta name="description" content="Portofolio Sony Habibi, siswa PPLG yang sedang mempersiapkan PKL" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ============ TOP BAR ============ -->
+  <div class="top-bar" aria-hidden="true">
+    <span>Welcome to My Portfolio · Sony Habibi · XI PPLG · PPLG Student · Siap PKL · </span>
+    <span>Welcome to My Portfolio · Sony Habibi · XI PPLG · PPLG Student · Siap PKL · </span>
+  </div>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav-wrap">
+    <nav class="nav container" aria-label="Navigasi utama">
+      <a href="#hero" class="nav-logo" aria-label="Beranda">
+        <span class="nav-logo__text">Portfolio</span>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu" aria-label="Buka menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#hero" class="nav-link">Home</a></li>
+        <li><a href="#tentang" class="nav-link">About</a></li>
+        <li><a href="#keahlian" class="nav-link">Skills</a></li>
+        <li><a href="#proyek" class="nav-link">Projects</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#kontak" class="nav-link nav-link--cta">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ============ HERO ============ -->
+    <section class="hero container" id="hero" aria-labelledby="hero-title">
+      <div class="hero__grid">
+        <div class="hero__content">
+          <p class="kicker">Siswa PPLG · Sedang Mempersiapkan PKL</p>
+
+          <h1 id="hero-title" class="hero__title">
+            <span class="hero__line">Haloo,</span>
+            <span class="hero__line hero__line--mark">Saya</span>
+            <span class="hero__line">Sony <span class="hero__line--mark hero__line--pink">Habibi.</span></span>
+          </h1>
+
+          <p class="hero__desc">
+            Saya siswa <strong>Pengembangan Perangkat Lunak & Gim</strong> yang senang membangun aplikasi web,
+            otak-atik logika, dan belajar lewat coba-coba.
+          </p>
+
+          <div class="hero__actions">
+            <a href="#proyek" class="btn btn--yellow">View Projects <span aria-hidden="true">→</span></a>
+            <a href="#tentang" class="btn btn--outline">About Me</a>
+          </div>
+
+          <ul class="hero__stats" aria-label="Quick stats">
+            <li class="stat">
+              <span class="stat__text">XI</span>
+              <span class="stat__label">Kelas Saat Ini</span>
+            </li>
+            <li class="stat">
+              <span class="stat__text">PPLG</span>
+              <span class="stat__label">Jurusan</span>
+            </li>
+            <li class="stat">
+              <span class="stat__num" data-count="4">0</span>
+              <span class="stat__label">Projects Done</span>
+            </li>
+          </ul>
+        </div>
+
+        <figure class="pc" aria-label="Foto Sony Habibi">
+          <span class="pc__ring" aria-hidden="true"></span>
+          <span class="pc__halftone" aria-hidden="true"></span>
+
+          <div class="pc__stack">
+            <span class="pc__layer pc__layer--blue" aria-hidden="true"></span>
+            <span class="pc__layer pc__layer--lime" aria-hidden="true"></span>
+
+            <div class="pc__card">
+              <span class="pc__tape pc__tape--a" aria-hidden="true"></span>
+              <span class="pc__tape pc__tape--b" aria-hidden="true"></span>
+
+              <div class="pc__frame">
+                <img src="assets/foto.jpg" alt="Sony Habibi, siswa PPLG kelas XI dari Depok" width="800" height="1000" loading="eager" />
+                <span class="pc__fold" aria-hidden="true"></span>
+              </div>
+
+              <figcaption class="pc__caption">
+                <span class="pc__name">Sony Habibi</span>
+                <span class="pc__meta">PPLG XI · Depok</span>
+              </figcaption>
+            </div>
+          </div>
+
+          <span class="pc__burst" aria-hidden="true"><span>SH</span></span>
+          <span class="pc__badge" aria-hidden="true">Depok, ID</span>
+          <p class="pc__status"><span class="pc__dot" aria-hidden="true"></span>Belajar: Laravel + Game Dev</p>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============ 01 / TENTANG ============ -->
+    <section class="section section--tint-pink" id="tentang" aria-labelledby="tentang-title">
+      <div class="container">
+        <header class="sec-head">
+          <h2 id="tentang-title" class="sec-title">About <span class="marker marker--lime">Me</span></h2>
+        </header>
+
+        <div class="about">
+          <article class="card about__story">
+            <p class="about__lead">
+              Halo. Saya <strong>Sony Habibi</strong>, siswa kelas XI
+              <strong>Pengembangan Perangkat Lunak & Gim (PPLG)</strong> di <strong>SMK TI Dwiguna</strong>.
+            </p>
+            <p class="about__text">
+              Saya tertarik dengan pengembangan website dan teknologi. Biasanya, saya mulai dari memikirkan ide untuk sebuah project, lalu menggunakan AI sebagai alat bantu untuk mengembangkan ide tersebut menjadi kode. Dari proses itu, saya mencoba memahami cara kerja project, melihat hasilnya, dan memperbaiki bagian yang belum sesuai.
+            </p>
+            <p class="about__text">
+              Saat ini, saya sedang belajar web development menggunakan PHP dan Laravel, mengenal Git & GitHub, serta mencoba pengembangan gim dan teknologi lainnya. Saya masih dalam tahap belajar dan ingin terus menambah pengalaman melalui project pribadi maupun kegiatan sekolah. Saya juga sedang mempersiapkan diri untuk mengikuti proses seleksi dan wawancara PKL.
+            </p>
+            <ul class="about__tags" aria-label="Tag identitas">
+              <li>SMK TI Dwiguna</li>
+              <li>XI PPLG</li>
+              <li>Web Development</li>
+              <li>Backend Development</li>
+            </ul>
+          </article>
+
+          <article class="card about__details">
+            <h3 class="about__details-title">Detail</h3>
+            <dl class="about__details-list">
+              <div>
+                <dt>Sekolah</dt>
+                <dd>SMK TI Dwiguna</dd>
+              </div>
+              <div>
+                <dt>Status</dt>
+                <dd>Persiapan PKL</dd>
+              </div>
+              <div>
+                <dt>Kelas</dt>
+                <dd>XI PPLG</dd>
+              </div>
+              <div>
+                <dt>Domisili</dt>
+                <dd>Depok, Jawa Barat</dd>
+              </div>
+              <div>
+                <dt>Jurusan</dt>
+                <dd>Pengembangan Perangkat Lunak & Gim</dd>
+              </div>
+            </dl>
+            <p class="about__mission"><strong>Target saat ini:</strong> Mendapatkan tempat PKL, menambah pengalaman kerja nyata, dan terus mengembangkan kemampuan melalui project.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 02 / KEAHLIAN ============ -->
+    <section class="section" id="keahlian" aria-labelledby="keahlian-title">
+      <div class="container">
+        <header class="sec-head sec-head--split">
+          <div>
+            <h2 id="keahlian-title" class="sec-title">My <span class="marker marker--yellow">Skills</span></h2>
+            <p class="sec-desc">
+              Teknologi dan tools yang saya pelajari melalui tugas sekolah, latihan mandiri, dan project.
+              Saya masih berada di tahap belajar dan terus menambah kemampuan.
+            </p>
+          </div>
+        </header>
+
+        <div class="skills">
+          <article class="skill">
+            <h3 class="skill__title">Web Development Dasar</h3>
+            <p class="skill__desc">Dasar pembuatan tampilan website yang saya pelajari melalui tugas sekolah dan project mandiri.</p>
+            <ul class="skill__chips">
+              <li>HTML5</li>
+              <li>CSS3</li>
+              <li>JavaScript</li>
+              <li>Responsive Design</li>
+            </ul>
+            <p class="skill__level">Level: Dasar</p>
+          </article>
+
+          <article class="skill">
+            <h3 class="skill__title">Backend & Database Dasar</h3>
+            <p class="skill__desc">Dasar backend yang saya gunakan untuk membuat project web dengan PHP, Laravel, dan database.</p>
+            <ul class="skill__chips">
+              <li>PHP 8</li>
+              <li>Laravel</li>
+              <li>MySQL</li>
+            </ul>
+            <p class="skill__level">Level: Dasar</p>
+          </article>
+
+          <article class="skill">
+            <h3 class="skill__title">Tools & Workflow</h3>
+            <p class="skill__desc">Tools yang saya gunakan untuk mengerjakan project, mengelola source code, dan kebutuhan tugas sekolah.</p>
+            <ul class="skill__chips">
+              <li>Git</li>
+              <li>GitHub</li>
+            </ul>
+            <p class="skill__level">Level: Dasar</p>
+          </article>
+
+          <article class="skill">
+            <h3 class="skill__title">Creative & Game Tools</h3>
+            <p class="skill__desc">Kemampuan dasar yang saya eksplor untuk kebutuhan desain dan pengembangan project kreatif.</p>
+            <ul class="skill__chips">
+              <li>Figma</li>
+              <li>RPG Maker MZ</li>
+              <li>Blender</li>
+            </ul>
+            <p class="skill__level">Level: Pemula</p>
+          </article>
+        </div>
+
+        <aside class="note-banner">
+          <p><strong>Catatan :</strong> Saya masih dalam tahap belajar. Saya lebih fokus membangun project, memahami dasar-dasarnya, dan memperbaiki kemampuan sedikit demi sedikit.</p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ============ 03 / PROJECTS ============ -->
+    <section class="section section--tint-blue" id="proyek" aria-labelledby="proyek-title">
+      <div class="container">
+        <header class="sec-head sec-head--split">
+          <div>
+            <h2 id="proyek-title" class="sec-title">My <span class="marker marker--lime">Projects</span></h2>
+            <p class="sec-desc">Beberapa project yang saya kerjakan saat belajar dan mengembangkan kemampuan di bidang teknologi.</p>
+          </div>
+        </header>
+
+        <div class="projects-slider" data-projects-slider>
+          <div class="projects-viewport">
+          <div class="projects" id="projectsGrid">
+          <article class="project card">
+            <div class="project__banner project__banner--stripes" data-num="01"></div>
+            <div class="project__body">
+              <p class="project__kind">Web Development · Project</p>
+              <h3 class="project__title">SENJAPUSTAKA</h3>
+              <p class="project__desc">Website perpustakaan ebook digital gratis untuk pelajar, dengan fitur pencarian, pembacaan ebook, bookmark, catatan, rating, review, dan profil pengguna.</p>
+              <ul class="project__chips">
+                <li>Laravel</li>
+                <li>MySQL</li>
+                <li>Chart.js</li>
+              </ul>
+            </div>
+            <div class="project__foot">
+              <button type="button" class="btn btn--outline btn--block" data-book="senjapustaka" data-dir="right">View Project <span aria-hidden="true">→</span></button>
+            </div>
+          </article>
+
+          <article class="project card">
+            <div class="project__banner project__banner--dots" data-num="02"></div>
+            <div class="project__body">
+              <p class="project__kind">School / Web · Project</p>
+              <h3 class="project__title">Website Berita</h3>
+              <p class="project__desc">Project website yang saya kerjakan sebagai bagian dari proses belajar pengembangan website di lingkungan sekolah.</p>
+              <ul class="project__chips">
+                <li>PHP</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>MySQL</li>
+              </ul>
+            </div>
+            <div class="project__foot">
+              <button type="button" class="btn btn--outline btn--block" data-book="website" data-dir="right">View Code <span aria-hidden="true">→</span></button>
+            </div>
+          </article>
+
+          <article class="project card">
+            <div class="project__banner project__banner--checker" data-num="03"></div>
+            <div class="project__body">
+              <p class="project__kind">Game Dev · RPG Maker MZ</p>
+              <h3 class="project__title">Penjaga Ladang</h3>
+              <p class="project__desc">Game RPG farming. Shiro mewarisi ladang keluarganya, lalu menanam, memetik hasil, dan melawan musuh yang menghampiri ladang.</p>
+              <ul class="project__chips">
+                <li>RPG Maker MZ</li>
+                <li>Farming Sim</li>
+                <li>Turn-Based</li>
+              </ul>
+            </div>
+            <div class="project__foot">
+              <button type="button" class="btn btn--outline btn--block" data-book="game" data-dir="right">Play the Game <span aria-hidden="true">→</span></button>
+            </div>
+          </article>
+
+          <article class="project card">
+            <div class="project__banner project__banner--rings" data-num="04"></div>
+            <div class="project__body">
+              <p class="project__kind">Team Project · AI Platform</p>
+              <h3 class="project__title">RoKenAI</h3>
+              <p class="project__desc">Platform pelaporan jalan rusak berbasis AI. AI mendeteksi tingkat kerusakan jalan dari foto warga secara otomatis.</p>
+              <ul class="project__chips">
+                <li>PHP</li>
+                <li>Tailwind</li>
+                <li>YOLOv8</li>
+              </ul>
+            </div>
+            <div class="project__foot">
+              <button type="button" class="btn btn--outline btn--block" data-book="rokenai" data-dir="right">View Project <span aria-hidden="true">→</span></button>
+            </div>
+          </article>
+          </div>
+
+          <div class="projects-nav">
+            <button type="button" class="projects-nav__btn" data-projects-prev aria-label="Project sebelumnya">←</button>
+            <span class="projects-nav__count"><strong id="projectsNow">01</strong> / <span id="projectsTotal">04</span></span>
+            <button type="button" class="projects-nav__btn" data-projects-next aria-label="Project berikutnya">→</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 04 / EXPERIENCE ============ -->
+    <section class="section section--stripes" id="experience" aria-labelledby="experience-title">
+      <div class="container">
+        <header class="sec-head sec-head--split">
+          <div>
+            <h2 id="experience-title" class="sec-title">My <span class="marker marker--pink">Experience</span></h2>
+            <p class="sec-desc">Pengalaman dan kegiatan yang sudah saya lakukan selama belajar di sekolah sebagai persiapan menuju PKL.</p>
+          </div>
+        </header>
+
+        <ol class="timeline">
+          <li class="timeline__item card">
+            <span class="timeline__num">01</span>
+            <div class="timeline__body">
+              <p class="timeline__period">School Activity</p>
+              <h3 class="timeline__title">Monitoring Komputer dengan Veyon</h3>
+              <p class="timeline__desc">Menggunakan Veyon untuk membantu memantau komputer yang digunakan dalam kegiatan belajar di sekolah.</p>
+            </div>
+          </li>
+
+          <li class="timeline__item card">
+            <span class="timeline__num">02</span>
+            <div class="timeline__body">
+              <p class="timeline__period">Learning</p>
+              <h3 class="timeline__title">Belajar Dasar Database</h3>
+              <p class="timeline__desc">Mengenal dasar database dari praktik nyata: menyusun tabel peminjaman perangkat, mengisi dan mengelola datanya supaya rapi dan mudah dicari.</p>
+            </div>
+          </li>
+
+          <li class="timeline__item card">
+            <span class="timeline__num">03</span>
+            <div class="timeline__body">
+              <p class="timeline__period">Learning & Project</p>
+              <h3 class="timeline__title">Belajar Web Development</h3>
+              <p class="timeline__desc">Mempelajari dan mempraktikkan HTML, CSS, PHP, Laravel, database, serta workflow Git & GitHub melalui project dan tugas.</p>
+            </div>
+          </li>
+
+          <li class="timeline__item timeline__item--active card">
+            <span class="timeline__num">04</span>
+            <div class="timeline__body">
+              <p class="timeline__period">Current</p>
+              <h3 class="timeline__title">Persiapan Wawancara PKL</h3>
+              <p class="timeline__desc">Merapikan project, CV, dan portofolio sebagai persiapan mengikuti proses seleksi dan wawancara PKL.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ 05 / KONTAK ============ -->
+    <section class="section" id="kontak" aria-labelledby="kontak-title">
+      <div class="container">
+        <header class="sec-head">
+          <h2 id="kontak-title" class="sec-title">Get In <span class="marker marker--yellow">Touch</span></h2>
+        </header>
+
+        <div class="contact">
+          <div class="card contact__channels">
+            <h3 class="contact__title">Let’s Connect</h3>
+            <p class="contact__desc">
+              Baik kamu perusahaan teknologi yang mencari apprentice, guru dengan feedback,
+              atau sesama student builder — kirim pesan saja.
+            </p>
+
+            <ul class="channel-list">
+              <li>
+                <a class="channel channel--yellow" href="mailto:sonyhabibi73@gmail.com">
+                  <span class="channel__text">
+                    <span class="channel__label">Primary Email</span>
+                    <span class="channel__value">sonyhabibi73@gmail.com</span> 
+                  </span>
+                  <span class="channel__arrow" aria-hidden="true">→</span>
+                </a>
+              </li>
+              <li>
+                <a class="channel channel--blue" href="https://github.com/sonyhabibi73" target="_blank" rel="noopener">
+                  <span class="channel__text">
+                    <span class="channel__label">GitHub</span>
+                    <span class="channel__value">github.com/sonyhabibi73</span>
+                  </span>
+                  <span class="channel__arrow" aria-hidden="true">→</span>
+                </a>
+              </li>
+              <li>
+                <a class="channel channel--pink" href="https://instagram.com/s_habibi02" target="_blank" rel="noopener">
+                  <span class="channel__text">
+                    <span class="channel__label">Instagram</span>
+                    <span class="channel__value">instagram.com/s_habibi02</span>
+                  </span>
+                  <span class="channel__arrow" aria-hidden="true">→</span>
+                </a>
+              </li>
+            </ul>
+
+            <p class="contact__location">Depok, West Java (GMT+7)</p>
+          </div>
+
+          <div class="card contact__form-card">
+            <h3 class="contact__form-title">Send a Message</h3>
+
+            <form class="form" id="contactForm" novalidate>
+              <div class="form__field">
+                <label for="nama">Nama Lengkap *</label>
+                <input type="text" id="nama" name="nama" placeholder="e.g. Budi Pratama atau Recruiter" required />
+              </div>
+              <div class="form__field">
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="email" placeholder="e.g. nama@email.com" required />
+              </div>
+              <div class="form__field">
+                <label for="pesan">Pesan *</label>
+                <textarea id="pesan" name="pesan" rows="4" placeholder="Tulis pesan atau pertanyaan tentang project dan PKL..." required></textarea>
+              </div>
+              <button type="submit" class="btn btn--pink btn--block">Send Message <span aria-hidden="true">→</span></button>
+              <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ BOTTOM BAR ============ -->
+    <div class="bottom-bar" aria-hidden="true">
+      <span>Keep Learning · Keep Building</span>
+      <span>Keep Learning · Keep Building</span>
+    </div>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container footer__main">
+      <div class="footer__brand">
+        <p class="footer__name">Sony Habibi</p>
+        <p class="footer__desc">
+          Apprentice Pengembangan Perangkat Lunak & Gim (SMK PPLG) yang menjelajah full-stack web,
+          arsitektur API, dan teknologi interaktif kreatif. Siap untuk penempatan industri.
+        </p>
+        <ul class="footer__tags">
+          <li>Game Engine</li>
+          <li>Backend / API</li>
+          <li>Live Prod</li>
+        </ul>
+      </div>
+
+      <nav class="footer__links" aria-label="Navigasi footer">
+        <a href="#hero">Home</a>
+        <a href="#tentang">About</a>
+        <a href="#keahlian">Skills</a>
+        <a href="#proyek">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#kontak">Contact</a>
+        <a href="#hero" class="footer__top">↑ Back to top</a>
+      </nav>
+    </div>
+
+    <div class="footer__bar">
+      <div class="container footer__bar-inner">
+        <span>© 2026 Sony Habibi — Built While Learning</span>
+        <span class="footer__bar-right">SMK TI Dwiguna · XI PPLG · Indonesia</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============ BOOK MODAL ============ -->
+  <div class="book-overlay" id="bookOverlay" hidden>
+    <div class="book" id="book" role="dialog" aria-modal="true" aria-labelledby="bookTitle">
+      <button class="book__close" id="bookClose" type="button" aria-label="Tutup detail proyek">×</button>
+      <div class="book__pages">
+        <p class="book__kind" id="bookKind"></p>
+        <h3 class="book__title" id="bookTitle"></h3>
+        <figure class="book__shot">
+          <img id="bookShot" src="assets/shot-1.jpg" alt="" width="1280" height="800" />
+          <figcaption id="bookShotCaption">Tampilan halaman utama proyek</figcaption>
+        </figure>
+        <p class="book__desc" id="bookDesc"></p>
+        <dl class="book__meta" id="bookMeta"></dl>
+        <p class="book__sub">Sorotan pengerjaan</p>
+        <ul class="book__points" id="bookPoints"></ul>
+        <div class="book__foot">
+          <a class="btn btn--yellow" id="bookLive" href="#" target="_blank" rel="noopener">
+            <span class="btn__main">Visit Live Website</span>
+            <span class="btn__domain" id="bookLiveDomain"></span>
+          </a>
+          <a class="btn btn--outline" id="bookRepo" href="#" target="_blank" rel="noopener">
+            <span class="btn__main">Lihat Source Code</span>
+            <span class="btn__domain" id="bookRepoDomain"></span>
+          </a>
+        </div>
+      </div>
+      <div class="book__cover" id="bookCover" aria-hidden="true">
+        <div class="book__face book__face--front">
+          <span class="book__num" id="bookNum">01</span>
+          <p class="book__cover-kind" id="bookCoverKind"></p>
+          <p class="book__cover-title" id="bookCoverTitle"></p>
+          <p class="book__cover-vol">Portofolio PKL · 2026</p>
+        </div>
+        <div class="book__face book__face--back" id="bookBack">
+        <div class="book__stickers" id="bookStickers" aria-hidden="true"></div>
+          <p class="book__back-name">Sony Habibi</p>
+          <p class="book__back-sub">Arsip PPLG · SMK TI Dwiguna</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <svg class="book-sprite" width="0" height="0" aria-hidden="true" focusable="false"><defs>
+    <pattern id="bk-checker" width="22" height="22" patternUnits="userSpaceOnUse"><rect width="22" height="22" fill="#c6f73f"/><rect width="11" height="11" fill="#161616"/><rect x="11" y="11" width="11" height="11" fill="#161616"/></pattern>
+    <symbol id="st-star" viewBox="0 0 100 100"><path d="M50.0 2.0 L55.4 29.7 L74.0 8.4 L64.8 35.2 L91.6 26.0 L70.3 44.6 L98.0 50.0 L70.3 55.4 L91.6 74.0 L64.8 64.8 L74.0 91.6 L55.4 70.3 L50.0 98.0 L44.6 70.3 L26.0 91.6 L35.2 64.8 L8.4 74.0 L29.7 55.4 L2.0 50.0 L29.7 44.6 L8.4 26.0 L35.2 35.2 L26.0 8.4 L44.6 29.7 Z" fill="currentColor" stroke="#161616" stroke-width="5" stroke-linejoin="round"/></symbol>
+    <symbol id="st-cloud" viewBox="0 0 100 100"><path d="M41 76 H72 A16 16 0 0 0 74 44 A22 22 0 0 0 33 37 A20 20 0 0 0 41 76 Z" fill="#ffffff" stroke="#161616" stroke-width="6" stroke-linejoin="round"/></symbol>
+    <symbol id="st-smiley" viewBox="0 0 100 100"><circle cx="50" cy="50" r="43" fill="currentColor" stroke="#161616" stroke-width="6"/><rect x="30" y="33" width="10" height="15" fill="#161616"/><rect x="60" y="33" width="10" height="15" fill="#161616"/><path d="M29 61 h10 v10 h22 v-10 h10 v10 h-10 v10 h-22 v-10 h-10 z" fill="#161616"/></symbol>
+    <symbol id="st-badge" viewBox="0 0 100 100"><circle cx="50" cy="50" r="43" fill="#ffffff" stroke="#161616" stroke-width="5" stroke-dasharray="11 9" stroke-linecap="round"/><path d="M40 27 h20 v13 h13 v20 H60 v13 H40 V60 H27 V40 h13 z" fill="currentColor" stroke="#161616" stroke-width="5" stroke-linejoin="miter"/></symbol>
+    <symbol id="st-pin" viewBox="0 0 100 100"><path d="M50 5 C34 5 22 17 22 32 C22 53 50 95 50 95 C50 95 78 53 78 32 C78 17 66 5 50 5 Z" fill="currentColor" stroke="#161616" stroke-width="6" stroke-linejoin="round"/><circle cx="50" cy="31" r="10" fill="#ffffff" stroke="#161616" stroke-width="5"/></symbol>
+    <symbol id="st-disc" viewBox="0 0 100 100"><circle cx="50" cy="50" r="43" fill="url(#bk-checker)" stroke="#161616" stroke-width="6"/></symbol>
+    <symbol id="st-cursor" viewBox="0 0 100 100"><path d="M22 8 L22 84 L40 66 L52 94 L68 87 L56 59 L82 59 Z" fill="#ffffff" stroke="#161616" stroke-width="6" stroke-linejoin="round"/></symbol>
+    <symbol id="st-cross" viewBox="0 0 100 100"><path d="M24 24 L76 76 M76 24 L24 76" stroke="#161616" stroke-width="11" stroke-linecap="round"/></symbol>
+    <symbol id="st-globe" viewBox="0 0 100 100"><circle cx="50" cy="50" r="42" fill="#ffffff" stroke="#161616" stroke-width="6"/><ellipse cx="50" cy="50" rx="18" ry="42" fill="none" stroke="#161616" stroke-width="5"/><path d="M8 50 H92 M15 28 H85 M15 72 H85" stroke="#161616" stroke-width="4" stroke-linecap="round"/></symbol>
+    <symbol id="st-tri" viewBox="0 0 100 100"><path d="M20 16 L20 84 L84 50 Z" fill="currentColor" stroke="#161616" stroke-width="6" stroke-linejoin="round"/></symbol>
+    <symbol id="st-sqcheck" viewBox="0 0 100 100"><rect x="6" y="6" width="88" height="88" fill="url(#bk-checker)" stroke="#161616" stroke-width="6"/></symbol>
+    <symbol id="st-bolt" viewBox="0 0 100 100"><path d="M58 4 L22 55 h21 l-8 41 36-51 H51 Z" fill="currentColor" stroke="#161616" stroke-width="6" stroke-linejoin="round"/></symbol>
+    <symbol id="st-code" viewBox="0 0 100 100"><path d="M36 22 L10 50 L36 78" fill="none" stroke="#161616" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><path d="M64 22 L90 50 L64 78" fill="none" stroke="#161616" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><path d="M57 14 L43 86" stroke="currentColor" stroke-width="9" stroke-linecap="round"/></symbol>
+    <symbol id="st-target" viewBox="0 0 100 100"><circle cx="50" cy="50" r="43" fill="#ffffff" stroke="#161616" stroke-width="6"/><circle cx="50" cy="50" r="26" fill="none" stroke="#161616" stroke-width="5"/><circle cx="50" cy="50" r="10" fill="currentColor" stroke="#161616" stroke-width="5"/></symbol>
+  </defs></svg>
+  <script src="script.js"></script>
+</body>
+</html>

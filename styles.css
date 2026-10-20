@@ -991,6 +991,23 @@ html.has-cursor .px-cursor-dot { display: block; }
 .form-status { font-size: var(--fs-sm); font-weight: 700; min-height: 1.2em; }
 .form-status.is-ok { color: #177a4f; }
 .form-status.is-err { color: #c22a54; }
+.form-status.is-wait { color: var(--muted); }
+
+/* jebakan bot: tak terlihat manusia, tetap kebaca bot */
+.form__hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.form button[type="submit"][disabled] {
+  opacity: 0.65;
+  cursor: progress;
+  transform: none;
+  box-shadow: var(--sh-sm);
+}
 
 /* ============ FOOTER ============ */
 .footer {

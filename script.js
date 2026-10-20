@@ -271,41 +271,186 @@ sections.forEach((sec) => sectionObserver.observe(sec));
   layout();
 })();
 
-// ============ CONTACT FORM (validasi statis) ==========
+// ============ CONTACT FORM ============
+// Pengiriman: Formspree (gratis, tanpa backend).
+//   1. Buka https://formspree.io → daftar dengan email songhabibi73@gmail.com
+//   2. Buat form baru → salin ID-nya (contoh: "mvgprjqz")
+//   3. Tempel ID itu di FORM_ID di bawah
+const FORM_ID = "xyekaozk";
+const FORM_ENDPOINT = `https://formspree.io/f/${FORM_ID}`;
+const CONTACT_EMAIL = "songhabibi73@gmail.com";
+
+// Domain email sekali pakai yang umum dipakai untuk spam / coba-coba.
+const DISPOSABLE_DOMAINS = new Set([
+  "mailinator.com", "10minutemail.com", "guerrillamail.com", "guerrillamail.net",
+  "sharklasers.com", "yopmail.com", "tempmail.com", "temp-mail.org",
+  "throwawaymail.com", "getnada.com", "dispostable.com", "maildrop.cc",
+  "fakeinbox.com", "mailnesia.com", "mintemail.com", "mytemp.email",
+  "spam4.me", "trashmail.com", "emailondeck.com", "moakt.com",
+  "tempr.email", "discard.email", "33mail.com", "mail.tm",
+]);
+
+const RATE_KEY = "portfolio:lastMessage";
+const RATE_MS = 60 * 1000;
+const MIN_FILL_MS = 3000;
+const EMAIL_RE = /^[a-z0-9._%+-]+@[a-z0-9-]+(?:\.[a-z0-9-]+)*\.[a-z]{2,}$/i;
+
 const form = document.getElementById("contactForm");
 const status = document.getElementById("formStatus");
+const submitBtn = form.querySelector('button[type="submit"]');
+const submitHTML = submitBtn.innerHTML;
+let sending = false;
 
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
+form.dataset.loadedAt = String(Date.now());
 
-  const fields = form.querySelectorAll("input, textarea");
-  let valid = true;
+function setStatus(msg, kind = "") {
+  status.textContent = msg;
+  status.className = "form-status" + (kind ? ` is-${kind}` : "");
+}
 
-  fields.forEach((field) => {
-    const empty = !field.value.trim();
-    const badEmail =
-      field.type === "email" &&
-      field.value &&
-      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.value);
+function flag(field, bad) {
+  if (bad) field.setAttribute("aria-invalid", "true");
+  else field.removeAttribute("aria-invalid");
+  return !bad;
+}
 
-    if (empty || badEmail) {
-      valid = false;
-      field.setAttribute("aria-invalid", "true");
-    } else {
-      field.removeAttribute("aria-invalid");
+function readRate() {
+  try {
+    return Number(localStorage.getItem(RATE_KEY)) || 0;
+  } catch {
+    return 0;
+  }
+}
+
+function writeRate() {
+  try {
+    localStorage.setItem(RATE_KEY, String(Date.now()));
+  } catch {
+    /* mode privat: abaikan */
+  }
+}
+
+// Pastikan domain email punya server email (record MX).
+// Kalau jaringan/DNS gagal, sengaja dianggap lolos supaya pengunjung asli tidak diblokir.
+async function domainHasMail(domain) {
+  const query = `name=${encodeURIComponent(domain)}&type=MX`;
+  const sources = [
+    `https://cloudflare-dns.com/dns-query?${query}`,
+    `https://dns.google/resolve?${query}`,
+  ];
+  for (const url of sources) {
+    try {
+      const res = await fetch(url, { headers: { Accept: "application/dns-json" } });
+      if (!res.ok) continue;
+      const json = await res.json();
+      if (!Array.isArray(json.Answer)) return false;
+      return json.Answer.some((a) => a.type === 15);
+    } catch {
+      /* coba sumber berikutnya */
     }
-  });
+  }
+  return true;
+}
 
-  if (!valid) {
-    status.textContent = "Mohon lengkapi semua kolom dengan benar.";
-    status.className = "form-status is-err";
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  if (sending) return;
+
+  const nama = form.elements.nama.value.trim();
+  const email = form.elements.email.value.trim().toLowerCase();
+  const pesan = form.elements.pesan.value.trim();
+  const domain = email.split("@")[1] || "";
+
+  // 1. Honeypot: cuma bot yang mengisi kolom tak terlihat ini.
+  if (form.elements.website.value.trim()) {
+    setStatus("Pesan terkirim. Terima kasih!", "ok");
     return;
   }
 
-  // Website statis: tidak ada backend. Tampilkan konfirmasi sukses.
-  status.textContent = "Pesan terkirim. Terima kasih sudah menghubungi!";
-  status.className = "form-status is-ok";
-  form.reset();
+  // 2. Terlalu cepat terisi = bot.
+  if (Date.now() - Number(form.dataset.loadedAt) < MIN_FILL_MS) {
+    setStatus("Tunggu sebentar, lalu kirim lagi.", "err");
+    return;
+  }
+
+  // 3. Isi form.
+  let valid = true;
+  valid = flag(form.elements.nama, nama.length < 2) && valid;
+  valid = flag(form.elements.pesan, pesan.length < 5) && valid;
+
+  const badEmail =
+    !EMAIL_RE.test(email) || email.length > 120 || DISPOSABLE_DOMAINS.has(domain);
+  valid = flag(form.elements.email, badEmail) && valid;
+
+  if (!valid) {
+    setStatus(
+      badEmail && email
+        ? "Email tidak valid. Pakai email asli yang aktif, bukan email sementara."
+        : "Mohon lengkapi semua kolom dengan benar.",
+      "err"
+    );
+    return;
+  }
+
+  // 4. Satu pesan per menit.
+  if (Date.now() - readRate() < RATE_MS) {
+    setStatus("Pesan sebelumnya baru terkirim. Tunggu sebentar lagi.", "err");
+    return;
+  }
+
+  // 5. Domain email harus punya server email.
+  setStatus("Memeriksa email...", "wait");
+  if (!(await domainHasMail(domain))) {
+    flag(form.elements.email, true);
+    setStatus("Domain email itu tidak punya server email. Pakai email yang benar.", "err");
+    return;
+  }
+
+  if (!FORM_ID) {
+    setStatus(`Form belum aktif. Kirim langsung ke ${CONTACT_EMAIL}.`, "err");
+    console.warn("[contact] FORM_ID masih kosong — isi di script.js.");
+    return;
+  }
+
+  // 6. Kirim.
+  sending = true;
+  submitBtn.disabled = true;
+  submitBtn.setAttribute("aria-busy", "true");
+  submitBtn.textContent = "Mengirim...";
+  setStatus("Mengirim pesan...", "wait");
+
+  try {
+    const res = await fetch(FORM_ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify({
+        name: nama,
+        email,
+        message: pesan,
+        _subject: `Pesan portofolio dari ${nama}`,
+        _gotcha: "",
+      }),
+    });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok || data.ok === false) {
+      throw new Error(data.errors?.[0]?.message || `HTTP ${res.status}`);
+    }
+    writeRate();
+    form.reset();
+    form.dataset.loadedAt = String(Date.now());
+    setStatus("Pesan terkirim. Terima kasih, saya balas ke email kamu.", "ok");
+  } catch (err) {
+    console.error("[contact]", err);
+    setStatus(
+      `Pesan gagal terkirim. Coba lagi, atau email langsung ke ${CONTACT_EMAIL}.`,
+      "err"
+    );
+  } finally {
+    sending = false;
+    submitBtn.disabled = false;
+    submitBtn.removeAttribute("aria-busy");
+    submitBtn.innerHTML = submitHTML;
+  }
 });
 
 // Reset status error saat mengetik

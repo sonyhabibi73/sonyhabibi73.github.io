@@ -426,17 +426,21 @@
             <h3 class="contact__form-title">Send a Message</h3>
 
             <form class="form" id="contactForm" novalidate>
+              <div class="form__hp" aria-hidden="true">
+                <label for="website">Website</label>
+                <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
+              </div>
               <div class="form__field">
                 <label for="nama">Nama Lengkap *</label>
-                <input type="text" id="nama" name="nama" placeholder="e.g. Budi Pratama atau Recruiter" required />
+                <input type="text" id="nama" name="nama" placeholder="e.g. Budi Pratama atau Recruiter" autocomplete="name" maxlength="80" required />
               </div>
               <div class="form__field">
                 <label for="email">Email *</label>
-                <input type="email" id="email" name="email" placeholder="e.g. nama@email.com" required />
+                <input type="email" id="email" name="email" placeholder="e.g. nama@email.com" autocomplete="email" maxlength="120" required />
               </div>
               <div class="form__field">
                 <label for="pesan">Pesan *</label>
-                <textarea id="pesan" name="pesan" rows="4" placeholder="Tulis pesan atau pertanyaan tentang project dan PKL..." required></textarea>
+                <textarea id="pesan" name="pesan" rows="4" placeholder="Tulis pesan atau pertanyaan tentang project dan PKL..." maxlength="2000" required></textarea>
               </div>
               <button type="submit" class="btn btn--pink btn--block">Send Message <span aria-hidden="true">→</span></button>
               <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
